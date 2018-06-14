@@ -3,20 +3,22 @@
 const debug = require('debug')('nodedev:db:setup')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
+const argv = require('yargs').argv
 const db = require('./')
 
 const prompt = inquirer.createPromptModule()
 async function setup () {
-  const answer = await prompt([
-    {
-      type: 'confirm',
-      name: 'setup',
-      message: 'This will destroy your database, are you sure? :o'
+  if (!argv.y) {
+    const answer = await prompt([
+      {
+        type: 'confirm',
+        name: 'setup',
+        message: 'This will destroy your databsae, are you sure?'
+      }
+    ])
+    if (!answer.setup) {
+      returnconsole.log('Nothing happened :)')
     }
-  ])
-
-  if (!answer.setup) {
-    return console.log('Nothing happened :)')
   }
 
   const config = {
