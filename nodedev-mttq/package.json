@@ -1,0 +1,33 @@
+{
+  "name": "nodedev-mttq",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple IoT Platform - MQTT Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "SET NODE_ENV=production && node server.js",
+    "start-dev": "SET DEBUG=nodedev:* && nodemon server.js",
+    "lint": "standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BillyAlexander/nodedev.git"
+  },
+  "author": "Alex Villa <alex22wb@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BillyAlexander/nodedev/issues"
+  },
+  "homepage": "https://github.com/BillyAlexander/nodedev#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.5",
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "debug": "^3.1.0",
+    "mosca": "^2.8.2",
+    "nodedev-db": "file:../nodedev-db",
+    "redis": "^2.8.0"
+  }
+}
